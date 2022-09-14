@@ -21,13 +21,13 @@ const AddNote = () => {
     <div className="container my-3">
       <h1> Add a note </h1>
       <form className="my-3">
-        <div class="mb-3">
+        <div className="mb-3">
           <label htmlFor="title" className="form-label">
            Title
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="title"
             name="title"
             aria-describedby="emailHelp"
@@ -36,7 +36,7 @@ const AddNote = () => {
             minLength={5} required
           />
         </div>
-        <div class="mb-3">
+        <div className="mb-3">
           <label htmlFor="description" className="form-label">
             Description
           </label>
@@ -50,7 +50,7 @@ const AddNote = () => {
             minLength={5} required
           />
         </div>
-        <div class="mb-3">
+        <div className="mb-3">
           <label htmlFor="tag" className="form-label">
             Tag
           </label>
@@ -65,7 +65,7 @@ const AddNote = () => {
           />
         </div>
         <button  disabled={note.title.length<5 || note.description.length <5} type="submit" className="btn btn-primary" onClick={handleClick}>
-          Submit
+          Add Note
         </button>
       </form>
     </div>
