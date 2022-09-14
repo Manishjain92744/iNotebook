@@ -5,7 +5,7 @@ import NoteContext from "./noteContext";
 const NoteState =(props) =>{
     const notesinitial = [
         {
-          "_id": "631cc903bc07f55e1a62e185",
+          "_id": "631cc903bc027f55e1a62e185",
           "user": "631cbea7824445965208fb6e",
           "title": "my title is added ",
           "description": "word hard to get something big ",
@@ -14,7 +14,7 @@ const NoteState =(props) =>{
           "__v": 0
         },
         {
-          "_id": "631f6d55c6794555568b5df9",
+          "_id": "631f6d55c46794555568b5df9",
           "user": "631cbea7824445965208fb6e",
           "title": "my title is added again",
           "description": "word hard to get something big ",
@@ -23,7 +23,7 @@ const NoteState =(props) =>{
           "__v": 0
         },
         {
-            "_id": "631cc903bc07f55e1a62e185",
+            "_id": "631cc903bc074f55e1a62e185",
             "user": "631cbea7824445965208fb6e",
             "title": "my title is added ",
             "description": "word hard to get something big ",
@@ -32,7 +32,7 @@ const NoteState =(props) =>{
             "__v": 0
           },
           {
-            "_id": "631f6d55c6794555568b5df9",
+            "_id": "631f46d55c6794555568b5df9",
             "user": "631cbea7824445965208fb6e",
             "title": "my title is added again",
             "description": "word hard to get something big ",
@@ -41,7 +41,7 @@ const NoteState =(props) =>{
             "__v": 0
           } ,
           {
-            "_id": "631cc903bc07f55e1a62e185",
+            "_id": "631cc9073bc07f55e1a62e185",
             "user": "631cbea7824445965208fb6e",
             "title": "my title is added ",
             "description": "word hard to get something big ",
@@ -50,7 +50,7 @@ const NoteState =(props) =>{
             "__v": 0
           },
           {
-            "_id": "631f6d55c6794555568b5df9",
+            "_id": "631f6d55c64794555568b5df9",
             "user": "631cbea7824445965208fb6e",
             "title": "my title is added again",
             "description": "word hard to get something big ",
