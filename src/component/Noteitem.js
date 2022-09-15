@@ -16,8 +16,7 @@ const Noteitem = (props) => {
           <i className="fa-solid fa-pen-to-square mx-2" onClick={() => {updateNote(note)}}></i>
           </div>
           <p className="card-text">
-            {note.description} Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Quo consequuntur laudantium ducimus .
+            {note.description} 
           </p>
         </div>
       </div>

@@ -24,7 +24,7 @@ const NoteState =(props) =>{
 
       //Add notes
      const addNote = async (title,description,tag)=>{
-      console.log("adding new note")
+     
       //TODO API CALL 
       const response = await fetch(`${host}/api/notes/addnote`, {
         method: 'POST', 
@@ -35,6 +35,8 @@ const NoteState =(props) =>{
        
         body: JSON.stringify({title,description,tag}) 
       });
+      const json = await response.json();
+      console.log(json);
       const note = {
         "_id": "631f6d55c64794555568b5df9",
         "user": "631cbea7824445965208fb6e",
@@ -71,7 +73,7 @@ const NoteState =(props) =>{
       const editNote =async (id,title,description,tag)=>{
         // api call 
         const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-          method: 'POST', 
+          method: 'PUT', 
           headers: {
             'Content-Type': 'application/json',
             "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxY2JlYTc4MjQ0NDU5NjUyMDhmYjZlIn0sImlhdCI6MTY2MjgyODI2OH0.eprwFVgxJoNjS3QhcKTwSlAxwpBRdWvFtl94o6inVXs"
@@ -79,21 +81,26 @@ const NoteState =(props) =>{
          
           body: JSON.stringify({title,description,tag}) 
         });
-      // const json = response.json(data);
+
+        const json = await response.json();
+        console.log(json);
+
+       let newNotes = JSON.parse(JSON.stringify(notes))
 
         // logic to edit note
-        for(let index=0;index<notes.length;index++)
+        for(let index=0;index<newNotes.length;index++)
         {
-          const element = notes[index];
+          const element = newNotes[index];
           if(element._id===id)
           {
-            element.title=title;
-            element.description=description;
-            element.tag=tag;
-
+            newNotes[index].title=title;
+            newNotes[index].description=description;
+            newNotes[index].tag=tag;
+            break;
           }
+         
         }
-      
+        setNotes(newNotes);
       }
    
   return (
