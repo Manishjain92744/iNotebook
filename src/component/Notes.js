@@ -22,7 +22,7 @@ const [note  ,setNote] = useState({id : "", etitle : "" , edescription :"",etag 
   }
 
   const handleClick = (e) => {
-    console.log("updating the note" , note);
+  
     editNote( note.id , note.etitle , note.edescription , note.etag);
     refClose.current.click();
    } 
@@ -120,10 +120,11 @@ const [note  ,setNote] = useState({id : "", etitle : "" , edescription :"",etag 
             </div>
             <div className="modal-footer">
               <button
-              ref={refClose}
+                ref={refClose}
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
+                disabled={note.etitle.length<5 || note.edescription.length <5 || note.etag.length<5 }
               >
                 Close
               </button>
@@ -134,14 +135,17 @@ const [note  ,setNote] = useState({id : "", etitle : "" , edescription :"",etag 
           </div>
         </div>
       </div>
-      <div className="row my-3 ">
+      <div className="container row my-3 ">
         <h1> your notes</h1>
+        
+        <h4> {notes.length===0 && 'No notes to display'}</h4>
         {notes.map((note) => {
           return (
             <Noteitem key={note._id} updateNote={updateNote} note={note} />
           );
         })}
-      </div>
+        </div>
+     
     </>
   );
 };

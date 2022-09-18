@@ -4,11 +4,11 @@ import NoteContext from "./noteContext";
 
 const NoteState =(props) =>{
   const host = "http://localhost:5000"
-    const notesInitial = []
-      const [notes,setNotes]=useState(notesInitial);
+  const notesInitial = []
+  const [notes,setNotes]=useState(notesInitial);
+
       //get all notes 
       const getNotes = async ()=>{
-        console.log("fetching all note")
         //TODO API CALL 
         const response = await fetch(`${host}/api/notes/fetchallnotes`, {
           method: 'GET', 
@@ -18,13 +18,11 @@ const NoteState =(props) =>{
           },
         });
         const json = await response.json();
-        console.log(json);
         setNotes(json)
       }
 
       //Add notes
-     const addNote = async (title,description,tag)=>{
-     
+     const addNote = async (title,description,tag)=>{   
       //TODO API CALL 
       const response = await fetch(`${host}/api/notes/addnote`, {
         method: 'POST', 
@@ -35,17 +33,8 @@ const NoteState =(props) =>{
        
         body: JSON.stringify({title,description,tag}) 
       });
-      const json = await response.json();
-      console.log(json);
-      const note = {
-        "_id": "631f6d55c64794555568b5df9",
-        "user": "631cbea7824445965208fb6e",
-        "title": title,
-        "description": description,
-        "tag": tag,
-        "date": "2022-09-12T17:33:09.578Z",
-        "__v": 0
-      }
+
+      const note = await response.json();
       setNotes(notes.concat(note));
 
      }
@@ -61,11 +50,9 @@ const NoteState =(props) =>{
          
         });
         const json = response.json();
-        console.log("note is deleted " +json);
 
         const newNotes = notes.filter((note)=>{return note._id!==id})
         setNotes(newNotes);
-        console.log("deleting the note with id "+id);
       
       }
 
@@ -83,7 +70,6 @@ const NoteState =(props) =>{
         });
 
         const json = await response.json();
-        console.log(json);
 
        let newNotes = JSON.parse(JSON.stringify(notes))
 
