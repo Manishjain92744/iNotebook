@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignUp = (props) => {
   const [credentials ,setCredentials]=useState({name: "" , email: "" , password: "" , cpassword: ""});
-  const navigate = useNavigate();
+  let navigate = useNavigate();
 
 const handleSubmit =  async (e) => {
   e.preventDefault();
@@ -20,7 +20,7 @@ const handleSubmit =  async (e) => {
     if(json.success){
       // save the auth token and redirect
       localStorage.setItem('token',json.authtoken);
-      navigate("/login");
+      navigate("/");
       props.showAlert("Account created Successfully " ,"success");
 
     }
@@ -33,9 +33,10 @@ const onChange = (e) => {
   setCredentials({ ...credentials, [e.target.name]: e.target.value });
 };
   return (
-    <div className="container my-3">
+    <div className="container my-4">
+       <h2> Create an account  to use Notebook</h2>
     <form  onSubmit={handleSubmit}>
-    <div className="form-group">
+    <div className="form-group my-2">
         <label htmlFor="exampleInputEmail1"> Name </label>
         <input
           type="text"
@@ -47,7 +48,7 @@ const onChange = (e) => {
           onChange={onChange}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group my-2">
         <label htmlFor="exampleInputEmail1">Email </label>
         <input
           type="email"
@@ -59,7 +60,7 @@ const onChange = (e) => {
           onChange={onChange}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group my-2">
         <label htmlFor="exampleInputPassword1">Password</label>
         <input
          onChange={onChange}
@@ -72,7 +73,7 @@ const onChange = (e) => {
           minLength={5} required
         />
       </div>
-      <div className="form-group">
+      <div className="form-group my-2">
         <label htmlFor="exampleInputPassword1">Confirm Password</label>
         <input
          onChange={onChange}

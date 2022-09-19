@@ -19,8 +19,9 @@ const Login = (props) => {
       if(json.success){
         // save the auth token and redirect
         localStorage.setItem('token',json.authtoken);
-        navigate("/");
         props.showAlert("Logged in Successfully " ,"success");
+        navigate("/");
+       
 
       }
       else {
@@ -32,9 +33,10 @@ const Login = (props) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   return (
-    <div className="container my-3">
+    <div className="container my-4">
+      <h2> Login to continue to Notebook</h2>
       <form  onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="form-group my-2">
           <label htmlFor="exampleInputEmail1">Email </label>
           <input
             type="email"
@@ -50,7 +52,7 @@ const Login = (props) => {
             We'll never share your email with anyone else.
           </small>
         </div>
-        <div className="form-group">
+        <div className="form-group my-2">
           <label htmlFor="exampleInputPassword1">Password</label>
           <input
            onChange={onChange}
